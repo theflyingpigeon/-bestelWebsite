@@ -1,0 +1,47 @@
+[debug] [2021-03-30T14:48:38.035Z] ----------------------------------------------------------------------
+[debug] [2021-03-30T14:48:38.037Z] Command:       /usr/local/Cellar/node/15.12.0/bin/node /usr/local/bin/firebase init
+[debug] [2021-03-30T14:48:38.037Z] CLI Version:   9.8.0
+[debug] [2021-03-30T14:48:38.037Z] Platform:      darwin
+[debug] [2021-03-30T14:48:38.038Z] Node Version:  v15.12.0
+[debug] [2021-03-30T14:48:38.039Z] Time:          Tue Mar 30 2021 16:48:38 GMT+0200 (Central European Summer Time)
+[debug] [2021-03-30T14:48:38.039Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-03-30T14:48:38.045Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-03-30T14:48:38.046Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/theflyingpigeon/PycharmProjects/bestelwebsitereact
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  .firebaserc already has a default project, using moonenwebsite. 
+[debug] [2021-03-30T14:48:41.449Z] > refreshing access token with scopes: []
+[debug] [2021-03-30T14:48:41.450Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-03-30T14:48:44.740Z] <<< HTTP RESPONSE 200 {"pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Tue, 30 Mar 2021 14:48:44 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-03-30T14:48:44.771Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/moonenwebsite [none]
+[debug] [2021-03-30T14:48:45.017Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/moonenwebsite 200
+[debug] [2021-03-30T14:48:45.017Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/moonenwebsite {"projectId":"moonenwebsite","projectNumber":"1000612330841","displayName":"moonenWebsite","name":"projects/moonenwebsite","resources":{"hostingSite":"moonenwebsite"},"state":"ACTIVE"}
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
