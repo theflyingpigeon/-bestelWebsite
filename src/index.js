@@ -131,10 +131,10 @@ app.delete("/delete/:ArtikkelNummer", (req, res) => {
     });
     db.close();
 });
-//
-app.listen(3001, () => {
-  console.log("Yey, your server is running on port 3001");
-});
+
+// app.listen(3001, () => {
+//   console.log("Yey, your server is running on port 3001");
+// });
 
 ReactDOM.render(
     routing,
