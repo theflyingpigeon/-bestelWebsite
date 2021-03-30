@@ -137,7 +137,7 @@ const routing = (
 // });
 
 ReactDOM.render(
-    routing,
+    // routing,
     document.getElementById('root')
 );
 
