@@ -1,3 +1,4 @@
+const functions = require('firebase-functions')
 const express = require("express");
 const app = express();
 const mysql = require("mysql");
@@ -14,106 +15,107 @@ const db = mysql.createConnection({
 });
 
 app.post("/create", (req, res) => {
-  const naam = req.body.Naam;
-  const artikkelNummer = req.body.ArtikkelNummer;
-  const minimaleVoorraad = req.body.MinimaleVoorraad;
+    const naam = req.body.Naam;
+    const artikkelNummer = req.body.ArtikkelNummer;
+    const minimaleVoorraad = req.body.MinimaleVoorraad;
 
-  db.query(
-    "INSERT INTO Bestellingen (Naam, Artikelnummer, MinimaleVooraad, ActueleVoorraad) VALUES (?,?,?,?)",
-    [naam, artikkelNummer, minimaleVoorraad, 0],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-      } else {
-        res.send("Values Inserted");
-      }
-    }
-  );
+    db.query(
+        "INSERT INTO Bestellingen (Naam, Artikelnummer, MinimaleVooraad, ActueleVoorraad) VALUES (?,?,?,?)",
+        [naam, artikkelNummer, minimaleVoorraad, 0],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send("Values Inserted");
+            }
+        }
+    );
 });
 
 app.get("/moonen", (req, res) => {
-  db.query("SELECT * FROM Bestellingen", (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(result);
-    }
-  });
+    db.query("SELECT * FROM Bestellingen", (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
 });
 
 app.get("/getData", (req, res) => {
-  db.query("SELECT * FROM Bestellingen", (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(result);
-    }
-  });
+    db.query("SELECT * FROM Bestellingen", (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
 });
 
 app.put("/updateArtikkelNummer", (req, res) => {
-  const an = req.body.artikkelnummer;
-  const artikkelNummer = req.body.Number;
+    const an = req.body.artikkelnummer;
+    const artikkelNummer = req.body.Number;
 
-  db.query(
-    "UPDATE Bestellingen SET Artikelnummer = ? WHERE Artikelnummer = ?",
-    [an, artikkelNummer],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-      } else {
-        res.send(result);
-      }
-    }
-  );
+    db.query(
+        "UPDATE Bestellingen SET Artikelnummer = ? WHERE Artikelnummer = ?",
+        [an, artikkelNummer],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send(result);
+            }
+        }
+    );
 });
 
 app.put("/updateMinimaleVoorraad", (req, res) => {
-  const voorraad = req.body.MinimaleVooraad;
-  const artikkelNummer = req.body.Number;
+    const voorraad = req.body.MinimaleVooraad;
+    const artikkelNummer = req.body.Number;
 
-  db.query(
-    "UPDATE Bestellingen SET MinimaleVooraad = ? WHERE Artikelnummer = ?",
-    [voorraad, artikkelNummer],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-      } else {
-        res.send(result);
-      }
-    }
-  );
+    db.query(
+        "UPDATE Bestellingen SET MinimaleVooraad = ? WHERE Artikelnummer = ?",
+        [voorraad, artikkelNummer],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send(result);
+            }
+        }
+    );
 });
 
 app.put("/updateVoorraad", (req, res) => {
-  const voorraad = req.body.voorraad;
-  const artikkelNummer = req.body.Number;
+    const voorraad = req.body.voorraad;
+    const artikkelNummer = req.body.Number;
 
-  db.query(
-    "UPDATE Bestellingen SET ActueleVoorraad = ? WHERE Artikelnummer = ?",
-    [voorraad, artikkelNummer],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-      } else {
-        res.send(result);
-      }
-    }
-  );
+    db.query(
+        "UPDATE Bestellingen SET ActueleVoorraad = ? WHERE Artikelnummer = ?",
+        [voorraad, artikkelNummer],
+        (err, result) => {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send(result);
+            }
+        }
+    );
 });
 
 app.delete("/delete/:ArtikkelNummer", (req, res) => {
-  const ArtikkelNummer = req.body.Artikelnummer;
-  db.query("DELETE FROM Bestellingen WHERE Artikelnummer = ?", [ArtikkelNummer], (err, result) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(result);
-    }
-  });
-  db.close();
+    const ArtikkelNummer = req.body.Artikelnummer;
+    db.query("DELETE FROM Bestellingen WHERE Artikelnummer = ?", [ArtikkelNummer], (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
 });
 
 app.listen(3001, () => {
-  console.log("Yey, your server is running on port 3001");
+    console.log("Yey, your server is running on port 3001");
 });
+
+exports.app = functions.https.onRequest(app);

@@ -12,8 +12,6 @@ function Producten() {
     const [newVoorraad, setNewVoorraad] = useState(0);
     const [newMinimaleVoorraad, setMinimaleNewVoorraad] = useState(0);
 
-    const [Data, setData] = useState([]);
-
     const getProducten = () => {
         Axios.get('http://localhost:3001/moonen').then((response) => {
             setBestelList(response.data);
@@ -106,20 +104,8 @@ function Producten() {
         }
     };
 
-    const generatePDF = () => {
-       return (
-           <div>
-               {bestelList.map(value => {
-                   if (bestelAdvies(value.MinimaleVooraad, value.ActueleVoorraad) > 0) {
-                       return <p key={value.Artikelnummer}>naam: {value.Naam} artikkelNummer: {value.Artikelnummer} bestel advies: {bestelAdvies(value.MinimaleVooraad, value.ActueleVoorraad)}</p>
-                   }
-               })}
-           </div>
-       )
-    }
-
     const deleteProduct = (artikkelNummer) => {
-        Axios.delete('http://localhost:3001/delete/${artikkelNummer}', {
+        Axios.delete('http://localhost:3001/delete/{artikkelNummer}', {
             ArtikkelNummer: artikkelNummer
         }).then((response) => {
             setBestelList(
@@ -156,14 +142,12 @@ function Producten() {
                     <input
                         type="number"
                         onChange={(event) => {
-                            setMinimaleNewVoorraad(event.target.value);
+                            setMinimaleVoorraad(event.target.value);
                         }}
                     />
 
                     <button onClick={addItem}>Voeg product toe</button>
                 </div>
-
-                <button onClick={generatePDF}>Genarate PDF</button>
 
                 <button onClick={getProducten}>Show producten</button>
                 {bestelList.map((val, key) => {
@@ -226,23 +210,7 @@ function Producten() {
                         </div>
                     );
                 })
-
                 }
-
-                <button onClick={getProducten}>laat de bestellijst zien</button>
-                {bestelList.map((val, key) => {
-                    if (bestelAdvies(val.MinimaleVooraad - val.ActueleVoorraad) > 0) {
-                    return (
-                        <div className="product">
-                            <div>
-                                <p>Naam: {val.Naam}</p>
-                                <p>Artikkelnummer: {val.Artikelnummer}</p>
-                                <p>BestelAdvies: {bestelAdvies(val.MinimaleVooraad - val.ActueleVoorraad)}</p>
-                            </div>
-                        </div>
-                    )
-                    }
-                })}
             </div>
         </div>
     )
