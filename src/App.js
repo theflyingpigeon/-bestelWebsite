@@ -7,6 +7,7 @@ function App() {
             <li> <Link to="/">Home</Link></li>
             <li> <Link to="/producten">Producten</Link></li>
             <li> <Link to="/bestellijst">Bestellijst</Link></li>
+            <li> <Link to="/test">Bestellijst</Link></li>
         </ul>
     );
 }
