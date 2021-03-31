@@ -15,7 +15,7 @@ import reportWebVitals from './reportWebVitals';
     //         <Route path="/bestellijst" exact component={Bestelijst} />
     //         <Route path="/test" exact component={Bestelijst} />
     //     </div>
-    // </Router>
+    // </Router>git
 // )
 
 
