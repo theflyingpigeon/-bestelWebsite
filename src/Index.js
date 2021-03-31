@@ -13,6 +13,7 @@ const routing = (
             <Route path="/" exact component={App} />
             <Route path="/producten" exact component={Producten} />
             <Route path="/bestellijst" exact component={Bestelijst} />
+            <Route path="/test" exact component={Bestelijst} />
         </div>
     </Router>
 )
