@@ -7,20 +7,20 @@ import Bestelijst from './components/Bestellijst'
 import reportWebVitals from './reportWebVitals';
 
 
-const routing = (
-    <Router>
-        <div>
-            <Route path="/" exact component={App} />
-            <Route path="/producten" exact component={Producten} />
-            <Route path="/bestellijst" exact component={Bestelijst} />
-            <Route path="/test" exact component={Bestelijst} />
-        </div>
-    </Router>
-)
+// const routing = (
+    // <Router>
+    //     <div>
+    //         <Route path="/" exact component={App} />
+    //         <Route path="/producten" exact component={Producten} />
+    //         <Route path="/bestellijst" exact component={Bestelijst} />
+    //         <Route path="/test" exact component={Bestelijst} />
+    //     </div>
+    // </Router>
+// )
 
 
 ReactDOM.render(
-   routing,
+   // routing,
     document.getElementById('root')
 );
 
